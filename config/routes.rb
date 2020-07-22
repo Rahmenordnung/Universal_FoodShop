@@ -16,9 +16,12 @@ Rails.application.routes.draw do
   get '/login' => 'user#login' 
   get '/logout' => 'user#logout'
 
+  #admin login routes -------------
+  # get 'admin' => 'user#login'
+
   #user cart routes------------------
-get '/cart/clear', to: 'cart#clearCart'
-get '/cart/decrease/:id' => 'cart#decrease'
+  get '/cart/clear', to: 'cart#clearCart'
+  get '/cart/decrease/:id' => 'cart#decrease'
   get '/cart', to: 'cart#index'
   get '/cart/:id', to: 'cart#add'
   get '/cart/remove/:id' => 'cart#remove'

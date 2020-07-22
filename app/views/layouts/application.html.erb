@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>GolfStore</title>
+    <title>Universal Food Shop</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -14,17 +14,13 @@
         <div id="content">
           <div id="first-column">
             <div class="loginbox">
-                    <% if user_signed_in? %>
-                  <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
+                <% if user_signed_in? %>
+                 <li><a href="#">Hi <%= current_user.email %></a></li>
                   <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
-                    <% else %>
+                <% else %>
                  <li><%= link_to 'Register', new_user_registration_path %></li> 
                  <li><%= link_to 'Sign in', new_user_session_path %></li>
-                    <% end %>
-
-              <div class="BoxHeaders">
-                Login here...
-              </div>
+                <% end %>
               <div class="searchbox">
                 <div class="BoxHeaders">
                   Search Catalog
