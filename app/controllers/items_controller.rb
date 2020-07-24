@@ -50,6 +50,12 @@ class ItemsController < ApplicationController
       end
     end
   end
+  
+  def search
+     st = "%#{params[:q]}%"
+     @items = Item.where("title like ?", st)
+  end
+
 
   # DELETE /items/1
   # DELETE /items/1.json

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :categories
   get 'orderitems/index'
   
   get 'orderitems/show'
@@ -53,8 +54,12 @@ Rails.application.routes.draw do
   #pay routes
   get '/paid/:id' => 'static_pages#paid'
   
-  
+  #categories route
   get '/category/:title', to: 'static_pages#category'
+  
+  #search route
+  post '/search' => 'items#search'
+  
 
   root :to => 'site#home'
   

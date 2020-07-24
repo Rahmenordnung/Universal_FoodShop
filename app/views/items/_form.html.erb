@@ -2,7 +2,6 @@
   <% if item.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>
-
       <ul>
       <% item.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -10,35 +9,60 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-  </div>
-
-  <div class="field">
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-  </div>
-
-  <div class="field">
-    <%= f.label :price %>
-    <%= f.text_field :price %>
-  </div>
-
-  <div class="field">
-    <%= f.label :image_url %>
-    <%= f.text_field :image_url %>
-  </div>
-
-  <div class="field">
-    <%= f.label :category %>
-    <%= f.text_field :category %>
-  </div>
-
- 
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <div class="container">
+    <form>
+      <div class="form-group row">
+        <%= f.label :title, class: "col-2 col-form-label text-green" %>
+        <div class="col-10">
+          <%= f.text_field :title, class: "form-control shadow rounded", placeholder: "Title of article" %>
+        </div>
+      </div>
+      <div class="form-group row">
+        <%= f.label :description, class: "col-2 col-form-label text-green" %>
+        <div class="col-10"> 
+          <%= f.text_area :description, rows: 10, class: "form-control shadow rounded", placeholder: "Description of item" %>
+        </div>
+      </div>
+      <div class="form-group row">
+        <%= f.label :image_url, class: "col-2 col-form-label text-green" %>
+        <div class="col-10"> 
+          <%= f.text_area :image_url, class: "form-control shadow rounded", placeholder: "Description of item" %>
+        </div>
+      </div>
+        <div class="form-group row">
+        <%= f.label :image_url, class: "col-2 col-form-label text-green" %>
+        <div class="col-10"> 
+          <%= f.text_area :image_url, class: "form-control shadow rounded", placeholder: "Url of Image" %>
+        </div>
+      </div>
+      <div class="form-group row">
+        <%= f.label :category, class: "col-2 col-form-label text-green" %>
+        <div class="col-10"> 
+          <%= f.text_area :category, class: "form-control shadow rounded", placeholder: "Item category" %>
+        </div>
+      </div>
+       <div class="form-group row ">
+        <%= f.label :provenience, class: "col-2 col-form-label text-green" %>
+        <div class="col-10"> 
+          <%= f.text_area :provenience,  class: "form-control shadow rounded", placeholder: "Item provenience" %>
+        </div>
+      </div>
+      <div class="form-group row  ">
+        <%= f.label :price, class: "col-2 col-form-label text-green" %>
+        <div class="col-10"> 
+          <%= f.text_area :price,  class: "form-control shadow rounded", placeholder: "Item price" %>
+        </div>
+      </div>
+      <div class="form-group row col-2">
+        <div class="form-check ">
+          <%= f.label :inStock %>
+            <%= f.check_box :inStock %>
+          </label>
+        </div>
+      </div>
+      <div class="form-group row justify-content-center col-10">
+        <%= f.submit class: "btn btn-outline-success btn-lg" %>
+      </div>
+    </form>
+    </div>
 <% end %>
