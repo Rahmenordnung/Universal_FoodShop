@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Universal Food Shop</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+  </head>
+
+  <body>
+      <div id="container">
+        <div id="content">
+          <div id="first-column">
+            <div class="loginbox">
+                <% if user_signed_in? %>
+                 <li><a href="#">Hi <%= current_user.email %></a></li>
+                  <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
+                <% else %>
+                 <li><%= link_to 'Register', new_user_registration_path %></li> 
+                 <li><%= link_to 'Sign in', new_user_session_path %></li>
+                <% end %>
+              <div class="searchbox">
+                <div class="BoxHeaders">
+                  Search Catalog
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    <%= render 'items/header' %>
+    
+    
+    <div class="container">
+     
+      
+
+    
+    <%= yield %>
+      
+    </div>
+    
+    <%= render 'items/footer' %>   
+  </body>
+</html>
+
+
+
+    
+
+
+
