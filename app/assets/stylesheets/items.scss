@@ -4,6 +4,13 @@
 
 /*item pages---------------------*/
 
+.card-img-top {
+    height: 200px;
+    
+}
+
+
+
 #itemsContainer {
     width: 100%;
     text-align: center;
@@ -18,13 +25,13 @@
 }
 
 .itemhols {
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 5px;
+    margin-right: 5px;
     margin-bottom: 10px;
     display: inline-block;
     width: 22%;
     padding: 10px;
-    min-height: 300px;
+    height: auto;
 }
 
 .itemhols h1 {

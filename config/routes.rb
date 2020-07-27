@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :proveniences
   resources :categories
   get 'orderitems/index'
   
@@ -60,6 +61,10 @@ Rails.application.routes.draw do
   #categories route
   get '/category/:title', to: 'static_pages#category'
   
+  #proveniences route
+  get 'provenience/:title', to: 'static_pages#provenience'
+  
+  
   #search route
   post '/search' => 'items#search'
   
@@ -70,6 +75,8 @@ Rails.application.routes.draw do
   get '/upgrade/:id' => 'static_pages#upgrade'
   get '/upgrade/:id' => 'static_pages#downgrade'
   
+  
+  get '/allusers', to: 'static_pages#allusers'
   #homepage
   root :to => 'site#home'
   

@@ -9,57 +9,65 @@
       
 
       <div class="itemhols">
-       <h1><%= item.title %></h1>
        
-       <div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Dropdown button
-  </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="#">Action</a>
-    <a class="dropdown-item" href="#">Another action</a>
-    <a class="dropdown-item" href="#">Something else here</a>
-  </div>
-</div>
        
-       <%= link_to (image_tag item.image_url, :class => "itemholsIm"), item %>
-        <p><%= item.description %></p>
-       <p>Price <%= number_to_currency(item.price, :unit => "€") %>
-       <br>
+
+
+<div class="card border-info mb-3 ml-3 mr-3" style="width: 18rem;">
+   <%= link_to (image_tag item.image_url, :class => "card-img-top"), item %>
+  <div class="card-body">
+    <h1 class="card-title"><%= item.title %></h1>
+    <p class="card-text"><%= item.description %></p>
+    <br>
         Category: <%= item.category %>
-        <br>
+    <br>
+    
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+      <label class="form-check-label" for="defaultCheck1">
+        In Stock? <%= item.inStock %>
+      </label>
+    </div>
+    
+    
+    
+    <p class="price">Price <%= number_to_currency(item.price, :unit => "€") %>
+       
           <%#=    Brand: <%= item.brand %></p> 
        <p>
-           <!--<a href="/cart/<%= item.id %>" class="button">Add to Cart</a>-->
-         <p>
-            <button class="btn1" onclick="window.location.href='/cart/<%= item.id %>'">
-               <span class="circle" aria-hidden="true">
-               <span class="icon arrow"></span>
-               </span>
-               <span class="button-text">Add to Cart</span>
-            </button>
-         </p>  
- 
-        <% if user_signed_in? %>  
-           <%= link_to 'Edit', edit_item_path(item), :class =>"button", :role=>"button" %>
-           <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' }, :class =>"button", :role=>"button" %>
-           
-           
-
-          
-        
-        <% end %>
-
-         <%= link_to 'Show',  item, :class => "button", :role => "button" %>
-         
-       </p>
-        
-      </div>
-    <% end %>
-
-
     
-    <%= will_paginate @items, previous_label: " back ", next_label: " following ", inner_window:0, outer_window:0  %>
+    <%= link_to 'Show',  item, :class => "btn btn-primary", :role => "button" %>
+    
+    <p>
+        <button class="btn1" onclick="window.location.href='/cart/<%= item.id %>'">
+           <span class="circle" aria-hidden="true">
+           <span class="icon arrow"></span>
+           </span>
+           <span class="button-text">Add to Cart</span>
+        </button>
+     </p>
+  </div>
+  
+           <% if current_user.admin? %>
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Admin user options
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a <%= link_to "All users List", "/allusers", :class =>"dropdown-item" %></a> 
+                <a <%= link_to 'New Item',  new_item_path, :class => "dropdown-item", :role => "button" %> </a>
+                <a <%= link_to 'Edit', edit_item_path(item), :class =>"dropdown-item", :role=>"button" %></a>
+                <a <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' }, :class =>"dropdown-item", :role=>"button" %></a>
+                <a <%= link_to 'New Category', new_category_path, :class =>"dropdown-item", :role=>"button"  %></a>
+                <a <%= link_to 'New provenience area', new_provenience_path, :class =>"dropdown-item", :role=>"button"  %></a>  
+              </div>
+            </div>
+         <% end %>
+    </div>
+</div>
+    <% end %>
+    
+<div class="pagination"> <%= will_paginate @items, previous_label: " back ", next_label: " following ", inner_window:0, outer_window:0  %> </div>
 
 </div>
 

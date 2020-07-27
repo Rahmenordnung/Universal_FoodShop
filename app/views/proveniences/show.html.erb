@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @provenience.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @provenience.description %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @provenience.image %>
+</p>
+
+<%= link_to 'Edit', edit_provenience_path(@provenience) %> |
+<%= link_to 'Back', proveniences_path %>

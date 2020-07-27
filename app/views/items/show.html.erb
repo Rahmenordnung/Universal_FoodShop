@@ -1,6 +1,8 @@
-<p id="notice"><%= notice %></p>
 
 
+<div role="alert">
+  <p class="alert alert-success"><%= notice %></p>
+</div>
 
  <div id="itemsContainer">
    <h1><%= @item.title %></h1>
@@ -26,16 +28,3 @@
    </div>
 
 
-
-  <%= @item.title %>
-  <%= @item.description %>
-  <%= @item.price %>
-  <%= @item.image_url %>
-  <%= @item.category %>
-  <%= @item.provenience %>
-
-  <%= @item.inStock %>
-
-
-<%= link_to 'Edit', edit_item_path(@item) %> |
-<%= link_to 'Back', items_path %>

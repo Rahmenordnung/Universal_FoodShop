@@ -3,6 +3,8 @@ class StaticPagesController < ApplicationController
       @items = Item.all
 
     @categories = Category.all
+    
+    @proveniences = Provenience.all
   end
 
   def help
@@ -21,6 +23,12 @@ class StaticPagesController < ApplicationController
     catName = params[:title]
     @items = Item.where("category like ? ", catName)
   end
+  
+  def provenience
+    provName = params[:title]
+    @items = Item.where("provenience like ? ", provName)
+  end
+
 
   
   def paid
@@ -54,8 +62,13 @@ class StaticPagesController < ApplicationController
     @user.update_attribute(:admin, true)
     redirect_to "/"
   end
-  
 
+
+  
+def allusers
+  
+  @users = User.all
+end
 
   
 end

@@ -42,6 +42,7 @@ body {
   height: 100%;
 }
 .container{ height:100%;
+            width:100%;
     min-height:0px!important;
 }
 form{
@@ -99,7 +100,7 @@ li a {
 }
 .mainCont { 
     margin: auto;
-    width:80%;
+    
     border: 3px solid #b3e0ff;
     padding: 10px;
     text-align: center;

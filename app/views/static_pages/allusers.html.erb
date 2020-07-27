@@ -1,4 +1,6 @@
-<h1>Heool here are all the users</h1>
+
+    
+    <h1>Heool here are all the users</h1>
 
 <div class="mainCont">
     
@@ -7,11 +9,25 @@
 <% @users.each do |user| %>
 
 
+<ul class="list-group">
+  <li class="list-group-item active">User Id:  <%= user.id %> </li>
+  <li class="list-group-item">email: <%= user.email %></li>
+  <li class="list-group-item">Admin: <%= user.admin %></li>
+  <li class="list-group-item">Porta ac consectetur ac</li>
+  <li class="list-group-item">Vestibulum at eros</li>
+</ul>
+
+
     <div class="itemhols">
     
-   <h1>User Id: <%= user.id %></h1>
-   <h1>email: <%= user.email %></h1>
-   <h1>Admin: <%= user.admin %></h1>
+   <h1></h1>
+   <h1></h1>
+   <h1></h1>
+   
+   
+
+
+   
     <p><a href="/upgrade/<%= user.id %>" class="button">Make Admin</a></p>
     </div>
    
@@ -19,3 +35,7 @@
     
     
 </div>
+
+
+
+
