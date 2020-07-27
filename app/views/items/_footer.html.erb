@@ -1,8 +1,9 @@
 <footer id="sticky-footer" class="py-4 bg-dark text-white-50">
-    <div class="container text-center">
-      <small>Copyright &copy; Your Website</small>
-      <% if session[:login] == 1 %>    
-        <%= link_to 'New Item',  new_item_path, :class => "btn btn-success", :role => "button" %>
-      <% end %>
-    </div>
-  </footer>
+  <div class="container text-center">
+    <small>Copyright &copy; Your Website</small>
+    <% if session[:login] == 1 %>    
+      <%= link_to 'New Item',  new_item_path, :class => "btn btn-success", :role => "button" %>
+       <%= link_to 'New Category', new_category_path, :class =>"btn btn-info", :role=>"button"  %>
+    <% end %>
+  </div>
+</footer>

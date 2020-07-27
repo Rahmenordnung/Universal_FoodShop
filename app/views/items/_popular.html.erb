@@ -1,0 +1,36 @@
+<div class="pop-box">
+  <h3>Popular Items</h3>
+  <table class="catalog">
+    <% @items.limit(2).order(:id).each do |item| %>
+        <tr>
+          <td>
+            <div class="image">
+              <%= link_to (image_tag item.image_url, :style => "height:100px"), item %>
+            </div>
+            <div class="title">
+              <%= link_to item.title, item %>
+            </div>
+            <div class="description">
+              <%= item.description %>
+            </div>  
+            <div class="price">
+              <%= number_to_currency(item.price, :unit => "€") %>
+            </div>
+            <div class="links">
+              <% if session[:login] ==1 %>
+                <%= link_to 'Edit', edit_item_path(item) %>
+                <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %>
+              <%else%>
+                <button class="btn1" onclick="window.location.href='/cart/<%= item.id %>'">
+                  <span class="circle" aria-hidden="true">
+                  <span class="icon arrow"></span>
+                  </span>
+                  <span class="button-text">Add to Cart</span>
+                </button>
+              <%end%>  
+          </div>
+          </td>
+        </tr>
+      <% end %>
+  </table>
+</div>

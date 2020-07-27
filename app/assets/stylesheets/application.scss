@@ -86,6 +86,9 @@ ul {
     overflow: hidden;
     background-color: #333;    
 }
+ul.navbar-nav {
+    background-color:transparent;
+}
 li {float:left;}
 li a {
     display: block;
@@ -134,3 +137,153 @@ li a {
    width: 100%;
     min-height: 700px;
 }
+
+//clear box
+.clear {
+    clear:both;
+}
+
+.logo {
+    max-width:50px;
+}
+.navbar-brand:hover {
+    background-color:transparent;
+}
+
+//most popular items container
+.pop-box {
+    border:2px solid #333;
+    border-radius:10px;
+    width:20%;
+    padding:15px;
+}
+.pop-box h3, .categories h3 {
+    color:#333;
+    text-align:center;
+    font-size:22px;
+}
+.pop-box tr td {
+    display:block;
+    margin:5px;
+}
+
+.pop-box button {
+    margin-left:-10px;
+}
+
+//categories container
+.categories {
+    border:2px solid #333;
+    border-radius:10px;
+}
+/* grid layout */
+.col-3 {
+    clear:both;
+    width:100% !important;
+    max-width:100% !important;
+}
+
+.col-3 div {width:30%;margin-right:3.5%;margin-left:0px;padding:0px;}
+.col-3 div:nth-child(3) {margin-right:0px;}
+
+//new buttons
+@import url('https://fonts.googleapis.com/css?family=Mukta:700');
+
+$bg: #f3f8fa;
+$white: #fff;
+$black: #282936;
+
+@mixin transition($property: all, $duration: 0.45s, $ease: cubic-bezier(0.65,0,.076,1)) {
+  transition: $property $duration $ease;
+}
+
+* {
+  box-sizing: border-box;
+  &::before, &::after {
+    box-sizing: border-box;
+  }
+}
+
+button {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  border: 0;
+  vertical-align: middle;
+  text-decoration: none;
+  background: transparent;
+  padding: 0;
+  font-size: 1rem;
+  font-family: 'Mukta', sans-serif;
+  &.btn1 {
+    width: 12rem;
+    height: auto;
+    .circle {
+      @include transition(all, 0.45s, cubic-bezier(0.65,0,.076,1));
+      position: relative;
+      display: block;
+      margin: 0;
+      width: 3rem;
+      height: 3rem;
+      background: $black;
+      border-radius: 1.625rem;
+      .icon {
+        @include transition(all, 0.45s, cubic-bezier(0.65,0,.076,1));
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        background: $white;
+        &.arrow {
+          @include transition(all, 0.45s, cubic-bezier(0.65,0,.076,1));
+          left: 0.625rem;
+          width: 1.125rem;
+          height: 0.125rem;
+          background: none;
+          &::before {
+            position: absolute;
+            content: '';
+            top: -0.25rem;
+            right: 0.0625rem;
+            width: 0.625rem;
+            height: 0.625rem;
+            border-top: 0.125rem solid #fff;
+            border-right: 0.125rem solid #fff;
+            transform: rotate(45deg);
+          }
+        }
+      }
+    }
+    .button-text {
+      @include transition(all, 0.45s, cubic-bezier(0.65,0,.076,1));
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 0.75rem 0;
+      margin: 0 0 0 1.85rem;
+      color: $black;
+      font-weight: 700;
+      line-height: 1.6;
+      text-align: center;
+      text-transform: uppercase;
+    }
+  }
+  &:hover {
+    .circle {
+      width: 100%;
+      .icon {
+        &.arrow {
+        background: $white;
+        transform: translate(1rem, 0);
+        }
+      }
+    }
+    .button-text {
+      color: $white;
+    }
+  }
+}
+

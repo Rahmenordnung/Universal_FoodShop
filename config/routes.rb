@@ -26,7 +26,8 @@ Rails.application.routes.draw do
   get 'cart/index'
   resources :items
   
-  get '/checkout' => 'cart#createOrder' 
+  get '/checkout' => 'cart#createOrder'
+  resources :charges
   
   
   
@@ -54,17 +55,22 @@ Rails.application.routes.draw do
   #pay routes
   get '/paid/:id' => 'static_pages#paid'
   
+  get '/orders/:id' => 'static_pages#orders'
+  
   #categories route
   get '/category/:title', to: 'static_pages#category'
   
   #search route
   post '/search' => 'items#search'
   
-
+  #paypal route
+  get '/thankyou/:id' => 'static_pages#thankyou'
+  
+    #admin related routes
+  get '/upgrade/:id' => 'static_pages#upgrade'
+  get '/upgrade/:id' => 'static_pages#downgrade'
+  
+  #homepage
   root :to => 'site#home'
-  
-
-
-  
   
 end

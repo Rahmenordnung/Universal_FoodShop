@@ -1,14 +1,14 @@
 <div class="mainCont">
-<%= image_tag("cherries.jpg", alt: "Welcome Logo", :class => "welcomeIm") %>    
     
-    
-<h1>Home</h1>
-<p>Welcome to your first home page!</p>
-<br>
-<br>
-<p>This will be the home page of the web app we will create together</p>
-</div>
+    <div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Welcome to the food universum</h1>
+    <p class="lead">Here you will find food from different galaxies in he universe, and different continents of the Earth.</p>
+    <%= image_tag("cherries.jpg", alt: "Welcome Logo", :class => "welcomeIm") %>
+  </div>
+</div> 
 
 
+<%=render 'items/popular'%>
 
 <%=render 'items/categories'%>

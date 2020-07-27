@@ -24,14 +24,16 @@
           </div>
           <div class="links">
             <% if user_signed_in? %>
+            <a href="/cart/<%= item.id %>">Add to Cart</a>
               <%= link_to 'Edit', edit_item_path(item) %>
               <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %>
             <%else%>
             
-              <a href="/cart/<%= item.id %>">Add to Cart</a>
+              
             <%end%>  
         </div>
         </td>
       </tr>
     <% end %>
 </table>
+

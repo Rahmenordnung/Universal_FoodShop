@@ -11,6 +11,17 @@
       <div class="itemhols">
        <h1><%= item.title %></h1>
        
+       <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Dropdown button
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="#">Action</a>
+    <a class="dropdown-item" href="#">Another action</a>
+    <a class="dropdown-item" href="#">Something else here</a>
+  </div>
+</div>
+       
        <%= link_to (image_tag item.image_url, :class => "itemholsIm"), item %>
         <p><%= item.description %></p>
        <p>Price <%= number_to_currency(item.price, :unit => "€") %>
@@ -19,13 +30,23 @@
         <br>
           <%#=    Brand: <%= item.brand %></p> 
        <p>
-           <a href="/cart/<%= item.id %>" class="button">Add to Cart</a>  
+           <!--<a href="/cart/<%= item.id %>" class="button">Add to Cart</a>-->
+         <p>
+            <button class="btn1" onclick="window.location.href='/cart/<%= item.id %>'">
+               <span class="circle" aria-hidden="true">
+               <span class="icon arrow"></span>
+               </span>
+               <span class="button-text">Add to Cart</span>
+            </button>
+         </p>  
  
         <% if user_signed_in? %>  
            <%= link_to 'Edit', edit_item_path(item), :class =>"button", :role=>"button" %>
            <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' }, :class =>"button", :role=>"button" %>
            
-           <%= link_to 'New Category', new_category_path, :class =>"button", :role=>"button"  %>
+           
+
+          
         
         <% end %>
 
@@ -35,6 +56,10 @@
         
       </div>
     <% end %>
+
+
+    
+    <%= will_paginate @items, previous_label: " back ", next_label: " following ", inner_window:0, outer_window:0  %>
 
 </div>
 

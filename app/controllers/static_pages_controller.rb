@@ -1,13 +1,21 @@
 class StaticPagesController < ApplicationController
   def home
+      @items = Item.all
+
     @categories = Category.all
   end
 
   def help
+     current_user.update_attribute :admin, true
   end
 
   def about
   end
+  
+  def thankyou
+    @order =Order.find(params[:id])
+    @order.update_attribute(:status, "Paid with Paypal successfully")
+  end  
   
   def category
     catName = params[:title]
@@ -34,6 +42,19 @@ class StaticPagesController < ApplicationController
     #"Paid by User:#{current_user.id} #{current_user.name} #{current_user.surname}")
     
   end
+  
+    def upgrade 
+      @user = User.find_by(id: params[:id])
+      @user.update_attribute(:admin, true)
+      redirect_to "/"
+    end
+	  
+   def downgrade 
+    @user = User.find_by(id: params[:id])
+    @user.update_attribute(:admin, true)
+    redirect_to "/"
+  end
+  
 
 
   
