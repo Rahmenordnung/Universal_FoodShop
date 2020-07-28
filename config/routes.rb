@@ -60,9 +60,9 @@ Rails.application.routes.draw do
   
   #categories route
   get '/category/:title', to: 'static_pages#category'
-  
+
   #proveniences route
-  get 'provenience/:title', to: 'static_pages#provenience'
+  get '/provenience/:title', to: 'static_pages#provenience'
   
   
   #search route
