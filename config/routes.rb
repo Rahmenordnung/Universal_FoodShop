@@ -43,7 +43,7 @@ Rails.application.routes.draw do
   get '/logout' => 'user#logout'
 
   #admin login routes -------------
-  # get 'admin' => 'user#login'
+   get 'admin' => 'user#login'
 
   #user cart routes------------------
   get '/cart/clear', to: 'cart#clearCart'
@@ -60,7 +60,7 @@ Rails.application.routes.draw do
   
   #categories route
   get '/category/:title', to: 'static_pages#category'
-
+  
   #proveniences route
   get '/provenience/:title', to: 'static_pages#provenience'
   
@@ -74,6 +74,7 @@ Rails.application.routes.draw do
     #admin related routes
   get '/upgrade/:id' => 'static_pages#upgrade'
   get '/upgrade/:id' => 'static_pages#downgrade'
+
   
   
   get '/allusers', to: 'static_pages#allusers'
