@@ -8,103 +8,52 @@
   <div class="row">
   
   <div class="col-4">.col-4<br>
-    <div class="accordion" id="accordionExample">
-  <div class="card">
-    <div class="card-header" id="headingOne">
-      <h5 class="mb-0">
-        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          Collapsible Group Item #1
-        </button>
-      </h5>
-    </div>
+        <%=render 'items/categories'%>
 
-    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-      <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header" id="headingTwo">
-      <h5 class="mb-0">
-        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          Collapsible Group Item #2
-        </button>
-      </h5>
-    </div>
-    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-      <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header" id="headingThree">
-      <h5 class="mb-0">
-        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Collapsible Group Item #3
-        </button>
-      </h5>
-    </div>
-    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-      <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
-  </div>
 </div>
+
+  <div class="col-5"><br>
   
-  
-  </div>
-  <div class="col-6">.col-6<br>Subsequent columns continue along the new line.
-  
-   
-  
-  
-  <% @items.each do |item| %>
-  
- 
-      
+    <% @items.each do |item| %>
 
       <div class="itemhols">
-       
-       
-
-
-<div class="card border-info mb-3 ml-3 mr-3" style="width: 18rem;">
-   <%= link_to (image_tag item.image_url, :class => "card-img-top"), item %>
-  <div class="card-body">
-    <h1 class="card-title"><%= item.title %></h1>
-    <p class="card-text"><%= item.description %></p>
-    <br>
-        Category: <%= item.category %>
-    <br>
-    
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-      <label class="form-check-label" for="defaultCheck1">
-        In Stock? <%= item.inStock %>
-      </label>
-    </div>
-    
-    
-    
-    <p class="price">Price <%= number_to_currency(item.price, :unit => "€") %>
-       
-          <%#=    Brand: <%= item.brand %></p> 
-       <p>
-    
-    <%= link_to 'Show',  item, :class => "btn btn-primary", :role => "button" %>
-    
-    <p>
-        <button class="btn1" onclick="window.location.href='/cart/<%= item.id %>'">
-           <span class="circle" aria-hidden="true">
-           <span class="icon arrow"></span>
-           </span>
-           <span class="button-text">Add to Cart</span>
-        </button>
-     </p>
-  </div>
+        
+        <div class="row">
+  
+    <div class="card border-info mb-3 ml-3 mr-3" style="width: 18rem;">
+           <%= link_to (image_tag item.image_url, :class => "card-img-top"), item %>
+          <div class="card-body">
+            <h1 class="card-title"><%= item.title %></h1>
+            <p class="card-text"><%= item.description %></p>
+            <br>
+                Category: <%= item.category %>
+            <br>
+            
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+              <label class="form-check-label" for="defaultCheck1">
+                In Stock? <%= item.inStock %>
+              </label>
+            </div>
+            
+            
+            
+            <p class="price">Price <%= number_to_currency(item.price, :unit => "€") %>
+               
+                  <%#=    Brand: <%= item.brand %></p> 
+               <p>
+            
+            <%= link_to 'Show',  item, :class => "btn btn-primary", :role => "button" %>
+            
+            <p>
+                <button class="btn1" onclick="window.location.href='/cart/<%= item.id %>'">
+                   <span class="circle" aria-hidden="true">
+                   <span class="icon arrow"></span>
+                   </span>
+                   <span class="button-text">Add to Cart</span>
+                </button>
+             </p>
+          </div>
             
 
           
@@ -127,8 +76,18 @@
           <% end %>
           <% end %>
     </div>
+    
+  </div>
+  
+</div>
+        
+        
+
+        
 </div>
     <% end %>
+    
+
     
 <div class="pagination"> <%= will_paginate @items, previous_label: " back ", next_label: " following ", inner_window:0, outer_window:0  %> </div>
 

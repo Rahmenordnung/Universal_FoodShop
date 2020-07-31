@@ -26,7 +26,11 @@
       <li class="nav-item">
       <li><%= link_to "View Cart", "/cart", class: "nav-link"  %></li>
       </li>
-      <% if user_signed_in? %>  
+      <% if user_signed_in? %>
+      <li class="nav-item">
+          <%= link_to "Past Orders", "/orders/", class: "nav-link" %>
+      </li>
+
         <li><%= link_to 'Edit Profile', edit_user_registration_path, class: "nav-link" %></li>
         <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete, class: "nav-link" %></li>
       <% else %>

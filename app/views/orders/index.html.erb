@@ -6,26 +6,48 @@
   <thead>
     <tr>
       <th>Order date</th>
-      <th>User</th>
+      <th>User email</th>
       <th>Status</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
+    <%# condition for view order status admin vs not admin %>
     <% @orders.each do |order| %>
+    
+    <% if current_user.admin? %>
+    
+    
       <tr>
         <td><%= order.order_date %></td>
-        <td><%= order.user %></td>
+        <td><%= order.user.email %></td>
         <td><%= order.status %></td>
+        <td><%= link_to 'New Order', new_order_path %></td>
         <td><%= link_to 'Show', order %></td>
         <td><%= link_to 'Edit', edit_order_path(order) %></td>
         <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        
       </tr>
+    
+    
+    <% else %>
+        <tr>
+        <td><%= order.order_date %></td>
+        <td><%= order.user.email %></td>
+        <td><%= link_to 'Show', order %></td>
+      </tr>
+  
     <% end %>
+    
+   
+   
+    
+    
   </tbody>
 </table>
 
 <br>
+ <% end %>
 
-<%= link_to 'New Order', new_order_path %>
+

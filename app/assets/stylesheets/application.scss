@@ -7,7 +7,9 @@
 @import "user";
 
 
-
+.card-body {
+    padding: 0 !important;
+}
 
 
 
@@ -101,7 +103,7 @@ li a {
     text-decoration: none;
 }
 .mainCont { 
-    margin: auto;
+    
     
     border: 3px solid #b3e0ff;
     padding: 10px;
@@ -134,11 +136,11 @@ li a {
 }
 // the container
 .container {
- background: url("/assets/Site/clubhead.png");
+ 
       background-repeat:no-repeat;
     background-position:right bottom;
    width: 100%;
-    min-height: 700px;
+    
 }
 
 //clear box
@@ -175,10 +177,7 @@ li a {
 }
 
 //categories container
-.categories {
-    border:2px solid #333;
-    border-radius:10px;
-}
+
 /* grid layout */
 .col-3 {
     clear:both;

@@ -7,36 +7,61 @@ You have just placed an order <%=@orders.id %>
 <table id="customers">
      <% @total = 0 %>
     <% @orderitems.each do |id,quantity| %>
-      <tr>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+            <th scope="col">Product Title</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Price per Item</th>
+            <th scope="col">Total Price</th>
+            
+     
+            </tr>
+        </thead>
+        <tbody>
+          
+                <tr>
         <% item = Orderitem.find_by_id(id) %>
        
         <td><%= item.title %></td>
         <td><%= item.quantity %></td>
-       <td><%=number_to_currency(item.price, :unit => "€")%></td> 
-       <td><%= number_to_currency(item.quantity * item.price, :unit => "€") %></td>
-       </tr>
+        <td><%=number_to_currency(item.price, :unit => "€")%></td> 
+        <td><%= number_to_currency(item.quantity * item.price, :unit => "€") %></td>
+      </tr>
        
        <% total = (item.quantity * item.price)%>  
      
      
       <% @total += total %>
       
+          <%# shipping condition %>
+     <tr>
+        <% if @total > 20 %>  
+          <% shipping = 5 %>
+            <% @overall = shipping + @total%>
+        <tr>
+          <td>Shipping &euro; 5</td>
+          
+        </tr>
+        <% else %>
+          <% shipping = 30 %>
+            <% @overall = shipping + @total%>
+        <tr>
+          <td>Shipping &euro; 30</td>
+          
+        </tr>
+    
+    </tr>
+      
+    <% end %>
+       <td><strong>You Pay &euro;<strong> <%= @overall %></td>
+      
       </tr>
     <% end %>
-    
-    
-    <tr>
-        
-       <td>Order Total: &euro; <%= @total %></td>
-       
-<% shipping = 30 %>
-      <% @overall = shipping + @total%>
-      <tr>
-          <td>Shipping &euro;30</td>
-          <td>You Pay &euro; <%= @overall %></td>
-        </tr>
-       
-      </tr>
+
+        </tbody>
+    </table>
+
       
       <tr>
           <td><h2>  <a href="/paid/<%= @orders.id %>" class="button">Pay Now</a></h2></td>
